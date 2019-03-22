@@ -1,3 +1,4 @@
-import sys, flask
+import sys
+import subprocess
 
 print(sys.executable)
