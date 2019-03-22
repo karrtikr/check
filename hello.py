@@ -1,3 +1,3 @@
-import sys
+import sys, flask
 
 print(sys.executable)
