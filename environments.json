@@ -1,0 +1,6 @@
+[{
+    "name":"LS - enabled",
+    "salt":"LS",
+    "min":90,
+    "max":100
+}]
