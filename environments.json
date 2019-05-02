@@ -1,6 +1,6 @@
 [{
     "name":"LS - enabled",
     "salt":"LS",
-    "min":90,
+    "min":85,
     "max":100
 }]
