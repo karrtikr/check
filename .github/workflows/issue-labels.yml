@@ -37,3 +37,12 @@ jobs:
             } else {
               console.log('This issue already has a "needs __", "iteration-plan", "release-plan", or the "testplan-item" label, do not add the "triage-needed" label.')
             }
+            for(const label of labels){
+              if(!["bug","dummys","duplicate","enhancement","help wanted","invalid","lintAway","question","wontfix"].includes(label)){
+                await octokit.rest.issues.deleteLabel({
+                  owner,
+                  repo,
+                  name: label,
+                });
+              }
+            }
