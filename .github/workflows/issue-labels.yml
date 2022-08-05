@@ -11,12 +11,16 @@ jobs:
   # From https://github.com/marketplace/actions/github-script#apply-a-label-to-an-issue.
   add-classify-label:
     name: "Add 'triage-needed'"
+    env:
+      LABELS: ["bug","dummys","duplicate","enhancement","help wanted","invalid","lintAway","question","wontfix","triage-needed"]
+      ASSIGNEES: './src/tmp/envPaths.json'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            const knownLabels = ${{ env.LABELS }};
             const result = await github.rest.issues.listLabelsOnIssue({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -38,7 +42,7 @@ jobs:
               console.log('This issue already has a "needs __", "iteration-plan", "release-plan", or the "testplan-item" label, do not add the "triage-needed" label.')
             }
             for(const label of labels){
-              if(!["bug","dummys","duplicate","enhancement","help wanted","invalid","lintAway","question","wontfix","triage-needed"].includes(label)){
+              if(!knownLabels.includes(label)){
                 await github.rest.issues.deleteLabel({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
