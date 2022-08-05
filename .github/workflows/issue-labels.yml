@@ -44,7 +44,7 @@ jobs:
             })
             const labelsz = result2.data.map((labelz) => labelz.name)
             for(const label of labelsz){
-              await octokit.rest.issues.deleteLabel({
+              await github.rest.issues.deleteLabel({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 name: label,
