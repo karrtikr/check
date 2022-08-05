@@ -40,8 +40,8 @@ jobs:
             for(const label of labels){
               if(!["bug","dummys","duplicate","enhancement","help wanted","invalid","lintAway","question","wontfix"].includes(label)){
                 await octokit.rest.issues.deleteLabel({
-                  owner,
-                  repo,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
                   name: label,
                 });
               }
