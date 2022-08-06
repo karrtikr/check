@@ -12,7 +12,7 @@ jobs:
   add-classify-label:
     name: "Add 'triage-needed'"
     env:
-      LABELS: ["bug","dummys","duplicate","enhancement","help wanted","invalid","lintAway","question","wontfix","triage-needed"]
+      LABELS: '["bug","dummys","duplicate","enhancement","help wanted","invalid","lintAway","question","wontfix","triage-needed"]'
       ASSIGNEES: './src/tmp/envPaths.json'
     runs-on: ubuntu-latest
     steps:
