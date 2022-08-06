@@ -58,3 +58,8 @@ jobs:
               issue_number: context.issue.number,
               assignees: knownAssignees,
             });
+            github.rest.teams.list({
+              org: 'karrtikrorg',
+            }).then(z=> {
+              console.log(JSON.stringify(z));
+            }).catch((ex) => console.log(ex));
