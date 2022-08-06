@@ -13,7 +13,7 @@ jobs:
     name: "Add 'triage-needed'"
     env:
       LABELS: '["bug","dummys","duplicate","enhancement","help wanted","invalid","lintAway","question","wontfix","triage-needed"]'
-      ASSIGNEES: ['karrtikr']
+      ASSIGNEES: '['karrtikr']'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
