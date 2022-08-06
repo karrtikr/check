@@ -21,6 +21,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const knownLabels = ${{ env.LABELS }}
+            console.log(knownLabels)
             const result = await github.rest.issues.listLabelsOnIssue({
               owner: context.repo.owner,
               repo: context.repo.repo,
